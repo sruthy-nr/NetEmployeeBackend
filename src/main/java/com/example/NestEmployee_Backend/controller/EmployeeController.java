@@ -2,6 +2,7 @@ package com.example.NestEmployee_Backend.controller;
 
 import com.example.NestEmployee_Backend.dao.EmployeeDao;
 import com.example.NestEmployee_Backend.model.EmployeeModel;
+import com.example.NestEmployee_Backend.model.TaskModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,7 @@ public class EmployeeController {
     EmployeeDao dao;
 
     @CrossOrigin(origins = "*")
-    @PostMapping(path = "/", consumes = "application/json", produces = "application/json")
+    @GetMapping("/")
     public String Homepage(){
         return "WELCOME TO MY WEBSITE";
     }
@@ -65,5 +66,6 @@ public class EmployeeController {
         return (List<EmployeeModel>) dao.findAll();
 
     }
+
 
 }
