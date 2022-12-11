@@ -11,8 +11,8 @@ import java.util.List;
 
 public interface TaskDao extends CrudRepository<TaskModel,Integer> {
 
-    @Query(value = "SELECT `id`, `empid`, `status`, `task` FROM `task` WHERE `empid`= :empid",nativeQuery = true)
-    public List<TaskModel> userViewTask(@Param("empid") int empid);
+    @Query(value = "SELECT `id`, `empid`, `status`, `task` FROM `task` WHERE `empid`=:empid AND `status`=:status",nativeQuery = true)
+    public List<TaskModel> userViewTask(@Param("empid") int empid,@Param("status") String status);
 
     @Modifying
     @Transactional

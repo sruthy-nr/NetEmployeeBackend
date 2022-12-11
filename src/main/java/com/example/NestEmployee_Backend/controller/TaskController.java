@@ -32,7 +32,8 @@ public class TaskController {
     @PostMapping(path = "/userviewtask", consumes = "application/json", produces = "application/json")
     public List<TaskModel> UserViewTask(@RequestBody TaskModel t){
 
-        return (List<TaskModel>) dao.userViewTask(t.getEmpid());
+        String status="Not completed";
+        return (List<TaskModel>) dao.userViewTask(t.getEmpid(), status);
     }
 
     @CrossOrigin("*")
